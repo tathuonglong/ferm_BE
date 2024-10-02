@@ -86,7 +86,7 @@ app.post('/', (req, res) =>
     }
 );
 
-app.put('/', (req, res) =>
+app.put('/:id', (req, res) =>
     {
         const schema = Joi.object({id: Joi.number().integer().min(1).required(),
             name: Joi.string().min(1).required(),
