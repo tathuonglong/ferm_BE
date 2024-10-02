@@ -111,7 +111,7 @@ app.put('/:id', (req, res) =>
             }
         } else
         {
-            console.log(`POST invalid, ${validateRes.error}, body: ${req.body}`);
+            console.log(`PUT invalid, ${validateRes.error}, body: ${JSON.stringify(req.body)}`);
             res.status(400).send(`Invalid request data, ${validateRes.error}`);
         }
     }
