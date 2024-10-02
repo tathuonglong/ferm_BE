@@ -51,7 +51,7 @@ app.post('/', (req, res) =>
         const validateRes = schema.validate(req.body);
         if(!validateRes.error)
         {
-            const index = req.params.id;
+            const index = req.body.id;
             const dbPlayer = playerList.find(p => p.id === parseInt(index));
             if (dbPlayer)
             {
