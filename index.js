@@ -31,7 +31,10 @@ app.get('/:id', (req,res) =>
         const index = req.params.id;
         const dbPlayer = playerList.find(p => p.id === parseInt(index));
         if (!dbPlayer)
+        {
+            console.log(`GET invalid, Player with given ID ${index} not found`);
             res.status(404).send(`Player with given ID ${index} not found`);
+        }
         res.send(dbPlayer);
     }
 );
@@ -77,6 +80,7 @@ app.post('/', (req, res) =>
             }
         } else
         {
+            console.log(`POST invalid, ${validateRes.error}`);
             res.status(400).send(`Invalid request data, ${validateRes.error}`);
         }
     }
@@ -98,6 +102,7 @@ app.put('/', (req, res) =>
             const dbPlayer = playerList.find(p => p.id === parseInt(index));
             if (!dbPlayer)
             {
+                console.log(`PUT invalid, Player with given ID ${index} not found`);
                 res.status(404).send(`Player with given ID ${index} not found`);
             } else
             {    
@@ -106,6 +111,7 @@ app.put('/', (req, res) =>
             }
         } else
         {
+            console.log(`POST invalid, ${validateRes.error}`);
             res.status(400).send(`Invalid request data, ${validateRes.error}`);
         }
     }
