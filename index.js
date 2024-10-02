@@ -80,7 +80,7 @@ app.post('/', (req, res) =>
             }
         } else
         {
-            console.log(`POST invalid, ${validateRes.error}`);
+            console.log(`POST invalid, ${validateRes.error}, body: ${req.body}`);
             res.status(400).send(`Invalid request data, ${validateRes.error}`);
         }
     }
@@ -111,7 +111,7 @@ app.put('/', (req, res) =>
             }
         } else
         {
-            console.log(`POST invalid, ${validateRes.error}`);
+            console.log(`POST invalid, ${validateRes.error}, body: ${req.body}`);
             res.status(400).send(`Invalid request data, ${validateRes.error}`);
         }
     }
